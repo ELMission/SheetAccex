@@ -3,7 +3,7 @@
 _Last updated Jan 10_ <br></br>
 Google Sheets individual sheet access control without use of any non-mass technology.
 
-Allows for 10 Zones, done seperately per sheet, allowing this code to be updated quickly via any word or code processor quickly, A zone having a maximum capactity of 3 Districts (easily updatable)
+Allows for any number of Zones or districts, One zone per sheets.
 
 ### Instructions & Standards
 - Download [generator.html](/generator.html) and open it in chrome
