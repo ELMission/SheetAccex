@@ -245,7 +245,8 @@
         if (!districtDiv) continue; // Skip removed districts
 
         const districtLeaderEmail = data[`district${d}Leader`];
-        userAccess[districtLeaderEmail] = [];
+        const districtName = data[`district${d}Name`];
+        userAccess[districtLeaderEmail] = [districtName];
 
         for (let a = 1; a <= areaCount[d - 1]; a++) {
           const areaDiv = document.getElementById(`district${d}area${a}`);
@@ -340,7 +341,4 @@ function onOpen() {
     }
   </script>
 </body>
-  <footer>
-    <a href="https://github.com/ELMission/SheetAccex/">.</a>
-  </footer>
 </html>
