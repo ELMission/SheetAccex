@@ -16,6 +16,8 @@ Please use the area formatting such as "Wembley 1" For the first area in wembley
 | The Assistants | ap | The start of your AP teaching areas email for example if the email was, "1000500@missionary.org" it would be "10000500" |
 | Zone Leaders | zonename | The name of the zone |
 | Zone Leaders | zl1 | The start of your zone leader teaching areas email for example if the email was, "1000500@missionary.org" it would be "10000500" |
+| STL | stlteachinga | The sheet name of the teaching area assigned to the STL |
+| STL | stl1 | The start of the STL teaching areas email
 | District Leaders | district1 | The sheet name of the district such as "Croydon" |
 | District Leaders | districtl1 | The start of your first district leader's teaching areas email for example if the email was, "1000567@missionary.org" it would be "10000567" |
 | Area | district1area1 | The sheet name of the first area within district 1 such as "Hyde Park 1" if the zone is Hyde Park South |
@@ -54,3 +56,17 @@ STL
 ![#ed53f5](https://placehold.co/15x15/ed53f5/ed53f5.png) `Area 8`
 ![#ed53f5](https://placehold.co/15x15/ed53f5/ed53f5.png) `Area 10`
 ![#ed53f5](https://placehold.co/15x15/ed53f5/ed53f5.png) `Area 12`
+
+
+
+
+
+
+
+
+Visual Studio
+- Zone selection/amount of districts, areas in each district = creates and adds as needed
+- Zone input/teaching area emails = formats via
+- Find and replace
+- 
+
