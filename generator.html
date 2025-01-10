@@ -246,7 +246,7 @@
 
         const districtLeaderEmail = data[`district${d}Leader`];
         const districtName = data[`district${d}Name`];
-        userAccess[districtLeaderEmail] = [districtName];
+        userAccess[districtLeaderEmail] = [districtName, `Plots for ${districtName}`];
 
         for (let a = 1; a <= areaCount[d - 1]; a++) {
           const areaDiv = document.getElementById(`district${d}area${a}`);
