@@ -53,6 +53,20 @@
     .button:hover {
       background-color: #0056b3;
     }
+    .remove-button {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-left: 10px;
+      background-color: #dc3545;
+      color: white;
+      font-size: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .remove-button:hover {
+      background-color: #c82333;
+    }
     pre {
       background-color: #f8f8f8;
       padding: 10px;
@@ -79,7 +93,9 @@
       </div>
       <div id="districtFields">
         <div class="district" id="district1">
-          <h3>District 1</h3>
+          <h3>District 1
+            <button type="button" class="remove-button" onclick="removeDistrict(1)">Remove District</button>
+          </h3>
           <div class="input-field">
             <label for="district1Name">District 1 Name:</label>
             <input type="text" id="district1Name" name="district1Name" required>
@@ -89,7 +105,7 @@
             <input type="text" id="district1Leader" name="district1Leader" required>
           </div>
           <div id="district1areas">
-            <div class="area">
+            <div class="area" id="district1area1">
               <div class="input-field">
                 <label for="district1area1Name">District 1 Area 1 Name:</label>
                 <input type="text" id="district1area1Name" name="district1area1Name" required>
@@ -105,6 +121,7 @@
                   <option value="sisters">Sisters</option>
                 </select>
               </div>
+              <button type="button" class="remove-button" onclick="removeArea(1, 1)">Remove Area</button>
             </div>
           </div>
           <button type="button" class="button" style="background-color:#28a745;" onclick="addArea(1)">Add Another Area</button><br><br>
@@ -132,6 +149,7 @@
       const areaIndex = areaCount[districtIndex - 1];
       const areaDiv = document.createElement('div');
       areaDiv.className = 'area';
+      areaDiv.id = `district${districtIndex}area${areaIndex}`;
       areaDiv.innerHTML = `
         <div class="input-field">
           <label for="district${districtIndex}area${areaIndex}Name">District ${districtIndex} Area ${areaIndex} Name:</label>
@@ -148,6 +166,7 @@
             <option value="sisters">Sisters</option>
           </select>
         </div>
+        <button type="button" class="remove-button" onclick="removeArea(${districtIndex}, ${areaIndex})">Remove Area</button>
       `;
       areasDiv.appendChild(areaDiv);
     }
@@ -160,7 +179,9 @@
       districtDiv.className = 'district';
       districtDiv.id = `district${districtCount}`;
       districtDiv.innerHTML = `
-        <h3>District ${districtCount}</h3>
+        <h3>District ${districtCount}
+          <button type="button" class="remove-button" onclick="removeDistrict(${districtCount})">Remove District</button>
+        </h3>
         <div class="input-field">
           <label for="district${districtCount}Name">District ${districtCount} Name:</label>
           <input type="text" id="district${districtCount}Name" name="district${districtCount}Name" required>
@@ -170,7 +191,7 @@
           <input type="text" id="district${districtCount}Leader" name="district${districtCount}Leader" required>
         </div>
         <div id="district${districtCount}areas">
-          <div class="area">
+          <div class="area" id="district${districtCount}area1">
             <div class="input-field">
               <label for="district${districtCount}area1Name">District ${districtCount} Area 1 Name:</label>
               <input type="text" id="district${districtCount}area1Name" name="district${districtCount}area1Name" required>
@@ -186,11 +207,22 @@
                 <option value="sisters">Sisters</option>
               </select>
             </div>
+            <button type="button" class="remove-button" onclick="removeArea(${districtCount}, 1)">Remove Area</button>
           </div>
         </div>
         <button type="button" class="button" style="background-color:#28a745;" onclick="addArea(${districtCount})">Add Another Area</button><br><br>
       `;
       districtFields.appendChild(districtDiv);
+    }
+
+    function removeArea(districtIndex, areaIndex) {
+      const areaDiv = document.getElementById(`district${districtIndex}area${areaIndex}`);
+      areaDiv.remove();
+    }
+
+    function removeDistrict(districtIndex) {
+      const districtDiv = document.getElementById(`district${districtIndex}`);
+      districtDiv.remove();
     }
 
     document.getElementById('accessForm').addEventListener('submit', function(event) {
@@ -209,10 +241,16 @@
       userAccess[stlEmail] = [];
 
       for (let d = 1; d <= districtCount; d++) {
+        const districtDiv = document.getElementById(`district${d}`);
+        if (!districtDiv) continue; // Skip removed districts
+
         const districtLeaderEmail = data[`district${d}Leader`];
         userAccess[districtLeaderEmail] = [];
 
         for (let a = 1; a <= areaCount[d - 1]; a++) {
+          const areaDiv = document.getElementById(`district${d}area${a}`);
+          if (!areaDiv) continue; // Skip removed areas
+
           const areaName = data[`district${d}area${a}Name`];
           const areaEmail = data[`district${d}area${a}email`];
           const areaType = data[`district${d}area${a}type`];
