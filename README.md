@@ -26,3 +26,31 @@ Please use the area formatting such as "Wembley 1" For the first area in wembley
 | District Leaders | district3 | All are done in like manner |
 
 ###### (without the quotation marks)
+You may additionally add more Admin/AP Access level users by using the replacement terms "adminemail4", "adminemail5" all the way up to adminemail8. Including the whole email in the replacement, such as "example@google.com" this is the exception to the don't use the domain instruction earlier on.
+
+
+
+
+
+
+Mission Presidency/AP/ZL
+
+DL1
+
+Area1, Area2, Area3, Area4, Area5
+
+DL2
+
+Area6, Area7, Area8
+
+DL3
+
+Area9, Area 10, Area11, Area 12
+
+STL
+
+![#ed53f5](https://placehold.co/15x15/ed53f5/ed53f5.png) `Area 3`
+![#ed53f5](https://placehold.co/15x15/ed53f5/ed53f5.png) `Area 7`
+![#ed53f5](https://placehold.co/15x15/ed53f5/ed53f5.png) `Area 8`
+![#ed53f5](https://placehold.co/15x15/ed53f5/ed53f5.png) `Area 10`
+![#ed53f5](https://placehold.co/15x15/ed53f5/ed53f5.png) `Area 12`
