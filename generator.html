@@ -48,6 +48,7 @@
       border-radius: 4px;
       cursor: pointer;
       text-align: center;
+      margin-top: 10px;
     }
     .button:hover {
       background-color: #0056b3;
@@ -57,6 +58,10 @@
       padding: 10px;
       border-radius: 4px;
       overflow-x: auto;
+      margin-top: 20px;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -111,7 +116,8 @@
         <input type="text" id="stlEmail" name="stlEmail" required>
       </div>
       <button type="submit" class="button">Generate Script</button>
-      <a id="downloadLink" class="button" style="display:none; margin-top: 10px;">Download Script</a>
+      <a id="downloadLink" class="button hidden" style="background-color:#28a745;">Download Script</a>
+      <button type="button" id="copyButton" class="button hidden" style="background-color:#ffc107;" onclick="copyToClipboard()">Copy Script</button>
     </form>
     <pre id="generatedScript"></pre>
   </div>
@@ -230,8 +236,21 @@
       const url = URL.createObjectURL(blob);
       downloadLink.href = url;
       downloadLink.download = 'generated_script.gs';
-      downloadLink.style.display = 'block';
+      downloadLink.classList.remove('hidden');
+
+      // Enable the copy button
+      const copyButton = document.getElementById('copyButton');
+      copyButton.classList.remove('hidden');
     });
+
+    function copyToClipboard() {
+      const scriptContent = document.getElementById('generatedScript').textContent;
+      navigator.clipboard.writeText(scriptContent).then(() => {
+        alert('Script copied to clipboard!');
+      }, (err) => {
+        console.error('Could not copy text: ', err);
+      });
+    }
 
     function generateScript(userAccess, stlAccess) {
       const userAccessString = JSON.stringify(userAccess, null, 2);
