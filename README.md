@@ -7,7 +7,8 @@ Allows for 10 Zones, done seperately per sheet, allowing this code to be updated
 
 ### Instructions & Standards
 - Download [generator.html](/generator.html) and open it in chrome
-Please use the area formatting such as "Wembley 1" For the first area in wembley, this must be used in all places pertaining to the sheets, such as the sheet names, plots for x sheets names, and in the app scripts.
+- Please use the area formatting such as "Wembley 1" For the first area in wembley, this must be used in all places pertaining to the sheets, such as the sheet names, plots for x sheets names, and in the app scripts.
+- this [document](/generator.md) goes over how to correctly fill in the generator and the following steps
 
 ### "Find & replace" the following
 
