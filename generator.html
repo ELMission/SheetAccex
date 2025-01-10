@@ -111,6 +111,7 @@
         <input type="text" id="stlEmail" name="stlEmail" required>
       </div>
       <button type="submit" class="button">Generate Script</button>
+      <a id="downloadLink" class="button" style="display:none; margin-top: 10px;">Download Script</a>
     </form>
     <pre id="generatedScript"></pre>
   </div>
@@ -222,6 +223,14 @@
 
       const scriptContent = generateScript(userAccess, stlAccess);
       document.getElementById('generatedScript').textContent = scriptContent;
+
+      // Enable the download link with the generated script
+      const downloadLink = document.getElementById('downloadLink');
+      const blob = new Blob([scriptContent], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      downloadLink.href = url;
+      downloadLink.download = 'generated_script.gs';
+      downloadLink.style.display = 'block';
     });
 
     function generateScript(userAccess, stlAccess) {
