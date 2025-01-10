@@ -1,7 +1,7 @@
  function onOpen() {
    var ss = SpreadsheetApp.getActiveSpreadsheet();
    var user = Session.getActiveUser().getEmail();
-
+   // Jan10 is a document showing an example that allows for manual config and changes through traditional find and replace
    // List of users and their sheet access
    ///  Jan10
    var userAccess = {
