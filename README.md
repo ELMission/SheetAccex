@@ -5,6 +5,8 @@ Google Sheets individual sheet access control without use of any non-mass techno
 
 Allows for 10 Zones, done seperately per sheet, allowing this code to be updated quickly via any word or code processor quickly, A zone having a maximum capactity of 3 Districts (easily updatable)
 
+### Instructions & Standards
+Please use the area formatting such as "Wembley 1" For the first area in wembley, this must be used in all places pertaining to the sheets, such as the sheet names, plots for x sheets names, and in the app scripts.
 
 ### "Find & replace" the following
 
